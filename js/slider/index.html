@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Example Page</title>
+	<link href="css/black-tie/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script>
+	
+	  $(function() {
+		$( "#slider" ).slider({
+		  value:400,
+		  min: 0,
+		  max: 500,
+		  step: 1,
+		  //animate: true,
+		  change: function( event, ui ) {
+					alert(ui.value);
+					//mando luego a llamar al script en php AJAX
+				},
+		  slide: function( event, ui ) {
+			$( "#amount" ).val( ui.value + " Hz");
+		  }
+		});
+		$( "#amount" ).val( $( "#slider" ).slider( "value" )  + " Hz" );
+	  });
+	
+	</script>
+</head>
+<body>
+
+<h1>Welcome to jQuery UI!</h1>
+
+<div class="ui-widget">
+	<p>Prueba</p>
+</div>
+
+<h1>YOUR COMPONENTS:</h1>
+
+<!-- Slider -->
+<h2 class="demoHeaders">Slider</h2>
+<p>
+  <label for="amount">Frecuencia de la SeñalModulante:</label>
+  <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+<div id="slider" style="float: left; clear: left; width: 100%;"></div>
+
+
+
+
+</body>
+</html>
